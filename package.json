@@ -5,7 +5,10 @@
   "description": "electron-updater example project",
   "author": "Matt Haggard",
   "scripts": {
-    "publish": "electron-builder -p always"
+    "start": "electron .",
+    "package": "npx electron-builder  --linux",
+    "publish-win": "npx electron-builder  --win --publish always",
+    "publish": "npx electron-builder  --linux --publish always"
   },
   "devDependencies": {
     "electron": "^14.0.1",
@@ -13,15 +16,17 @@
     "electron-notarize": "^1.1.1"
   },
   "dependencies": {
-    "electron-log": "^4.4.1",
+    "electron-log": "^4.4.6",
     "electron-updater": "^4.3.9"
   },
   "build": {
-     "publish": [{
-       "provider": "github",
-       "owner": "chet-cloud",
-       "repo": "electron-updater-example"
-     }],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "chet-cloud",
+        "repo": "electron-updater-example"
+      }
+    ],
     "appId": "com.github.iffy.electronupdaterexample",
     "afterSign": "./build/notarize.js",
     "mac": {
