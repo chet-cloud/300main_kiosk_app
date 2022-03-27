@@ -17,6 +17,11 @@
     "electron-updater": "^4.3.9"
   },
   "build": {
+     "publish": [{
+       "provider": "github",
+       "owner": "chet-cloud",
+       "repo": "electron-updater-example"
+     }],
     "appId": "com.github.iffy.electronupdaterexample",
     "afterSign": "./build/notarize.js",
     "mac": {
