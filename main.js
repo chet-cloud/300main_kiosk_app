@@ -13,9 +13,10 @@ function createDefaultWindow() {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
-    }
+    },
+    kiosk:true
   });
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
   });
