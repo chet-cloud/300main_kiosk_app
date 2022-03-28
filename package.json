@@ -24,7 +24,7 @@
       {
         "provider": "github",
         "owner": "chet-cloud",
-        "repo": "electron-updater-example"
+        "repo": "300main_kiosk_app"
       }
     ],
     "appId": "com.github.iffy.electronupdaterexample",
