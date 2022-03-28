@@ -51,10 +51,11 @@
 4. Publish app
     - Publish to github
     ```shell
-    npm run publish-win 
-    ```
-    - Set Releases version
-    ```shell
-    # For example -  https://github.com/chet-cloud/300main_kiosk_app/releases/tag/v0.8.2
+    # 1. update version number, "version": "0.8.4" -> "version": "0.8.5", then:
+
+    # 2. update the package to github release page
+    npm run publish-win # will create pre-publish tag
+
+    # 3. update pre-publish to publish, the running application will update automatically
     ```
 

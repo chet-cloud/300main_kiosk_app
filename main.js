@@ -1,12 +1,16 @@
 const {app, BrowserWindow, Menu} = require('electron');
-require('./update');
+const {setCallback} = require('./update');
 
 let win;
 
-function sendStatusToWindow(text) {
-  log.info(text);
-  win.webContents.send('message', text);
-}
+// function sendStatusToWindow(text) {
+//   log.info(text);
+//   win.webContents.send('message', text);
+// }
+
+setCallback((event,text)=>{
+  win.webContents.send('message', `[${event}]:${text}`);
+})
 
 function createDefaultWindow() {
   win = new BrowserWindow({
@@ -14,7 +18,8 @@ function createDefaultWindow() {
       nodeIntegration: true,
       contextIsolation: false
     },
-    kiosk:true
+    kiosk:true,
+    autoHideMenuBar: true,
   });
   //win.webContents.openDevTools();
   win.on('closed', () => {

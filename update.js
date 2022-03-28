@@ -15,28 +15,34 @@ autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
 log.info('App starting...');
 
-
+let callback =()=>{}
 
 autoUpdater.on('checking-for-update', () => {
     log.info('Checking for update...');
+    callback('checking-for-update','Checking for update...')
 })
 autoUpdater.on('update-available', (info) => {
     log.info('Update available.');
+    callback('update-available','Update available.');
 })
 autoUpdater.on('update-not-available', (info) => {
     log.info('Update not available.');
+    callback('update-not-available','Update not available.');
 })
 autoUpdater.on('error', (err) => {
     log.info('Error in auto-updater. ' + err);
+    callback('error','Error in auto-updater. ' + err);
 })
 autoUpdater.on('download-progress', (progressObj) => {
     let log_message = "Download speed: " + progressObj.bytesPerSecond;
     log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
     log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
     log.info(log_message);
+    callback('download-progress',log_message);
 })
 autoUpdater.on('update-downloaded', (info) => {
     log.info('Update downloaded');
+    callback('update-downloaded','Update downloaded');
     autoUpdater.quitAndInstall();
 });
 
@@ -47,7 +53,9 @@ setInterval(() => {
 }, 5000)
 
 
-exports = autoUpdater
+exports.setCallback =  function(fn){
+    callback = fn
+}
 
 
 

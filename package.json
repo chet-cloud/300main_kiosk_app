@@ -1,9 +1,9 @@
 {
   "name": "300main_kiosk_app",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "main": "main.js",
   "description": "300main_kiosk_app project",
-  "author": "Matt Haggard",
+  "author": "Chet",
   "scripts": {
     "start": "electron .",
     "package": "npx electron-builder  --linux",
