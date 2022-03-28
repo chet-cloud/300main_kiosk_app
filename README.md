@@ -48,7 +48,7 @@
     npm run package-win  # find the exe installer in ./dist and install the app in windows for the first time
     ```
 
-4. Publish app
+4. Publish app (https://github.com/iffy/electron-updater-example)
     - Publish to github
     ```shell
     # 1. update version number, "version": "0.8.4" -> "version": "0.8.5", then:

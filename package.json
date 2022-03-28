@@ -37,7 +37,7 @@
       "target": "nsis"
     },
     "nsis": {
-      "oneClick": false
+      "oneClick": true
     },
     "linux": {
       "category": "artisreit.kiosk",
