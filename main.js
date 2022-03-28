@@ -20,7 +20,12 @@ function createDefaultWindow() {
   win.on('closed', () => {
     win = null;
   });
-  win.loadURL(`file://${__dirname}/version.html#v${app.getVersion()}`);
+
+  // Set environment variables and read it
+  let specified_page = process.env.APP===undefined ? "version.html": process.env.APP
+
+  win.loadURL(`file://${__dirname}/public/${specified_page}#v${app.getVersion()}`);
+  
   return win;
 }
 

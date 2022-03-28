@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Electron Updater Example</title>
+  <title>Artisreit Kiosk</title>
 </head>
 <body>
+  <h1>Please set the environment to specify the display page</h1>
   Current version: <span id="version">vX.Y.Z</span>
   <div id="messages"></div>
 <script>
@@ -20,9 +21,7 @@ ipcRenderer.on('message', function(event, text) {
   container.appendChild(message);
 })
 
-
-
 </script>
-<video autoplay muted loop id="myVideo" src="./public/2.mp4"></video>
+<!-- <video autoplay muted loop id="myVideo" src="./public/2.mp4"></video> -->
 </body>
 </html>
