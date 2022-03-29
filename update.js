@@ -33,7 +33,7 @@ autoUpdater.on('error', (err) => {
     log.info('Error in auto-updater. ' + err);
     callback('error','Error in auto-updater. ' + err);
 })
-let isDownloading = new Date().getTime();
+let isDownloading = null;
 autoUpdater.on('download-progress', (progressObj) => {
     isDownloading = new Date().getTime();
     let log_message = "Download speed: " + progressObj.bytesPerSecond;
@@ -48,10 +48,10 @@ autoUpdater.on('update-downloaded', (info) => {
     autoUpdater.quitAndInstall();
 });
 
-autoUpdater.checkForUpdates()
-
 setInterval(() => {
-    if( new Date().getTime() - isDownloading > 2* 60 * 1000){
+    if(isDownloading ===null){
+        autoUpdater.checkForUpdates()
+    }else if(new Date().getTime() - isDownloading > 2* 60 * 1000){
         autoUpdater.checkForUpdates()
     }
     //autoUpdater.checkForUpdatesAndNotify();

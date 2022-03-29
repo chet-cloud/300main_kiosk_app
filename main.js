@@ -1,4 +1,4 @@
-const {app, BrowserWindow, Menu} = require('electron');
+const {app, BrowserWindow, Menu,protocol} = require('electron');
 const {setCallback} = require('./update');
 
 let win;
@@ -16,10 +16,14 @@ function createDefaultWindow() {
   win = new BrowserWindow({
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false
+      contextIsolation: false,
+      enableRemoteModule: true
     },
     kiosk:true,
     autoHideMenuBar: true,
+    // webPreferences: {
+    //   webSecurity: true
+    // }
   });
   //win.webContents.openDevTools();
   win.on('closed', () => {
@@ -35,6 +39,16 @@ function createDefaultWindow() {
 }
 
 app.on('ready', function() {
+  // protocol.registerFileProtocol('my-magic-protocol', (request, callback) => {
+  //   const url = request.url.replace('my-magic-protocol://getMediaFile/', '')
+  //   try {
+  //     return callback(url)
+  //   }
+  //   catch (error) {
+  //     console.error(error)
+  //     return callback(404)
+  //   }
+  // })
   createDefaultWindow();
 });
 

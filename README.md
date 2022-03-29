@@ -1,10 +1,16 @@
 # Product environment setup
 
 1. Install Windows 10
+    - disable automaticaly update (1. run: services.msc 2. Disabled from the Startup type dropdown menu)
+    - disable notificatioin
+    - disable screen and disk sleep
 
 2. Add app to startup
 
-    - Install the application
+    - Install the application 
+    ```shell
+    C:\Users\artisreit_kiosk\AppData\Local\Programs\300main_kiosk_app\300main_kiosk_app.exe
+    ```
     - Copy the shortcut of the app to this dir (artisreit_kiosk is the username of login user)
     ```shell
     C:\Users\artisreit_kiosk\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
@@ -25,6 +31,9 @@
     - Now, enter and repeat your password and click OK
     - Restart your computer. You’ll notice that you’ll be signed in automatically, without the need to enter your password
 
+4. install Syncthing
+    - https://github.com/canton7/SyncTrayzor/releases/tag/v1.1.29
+
 
 
 # Development 
@@ -40,6 +49,7 @@
 2. Preview or development the app
     ```shell
     # Set environment variable to specify the page to display
+    $Env:APP = "kiosk_left.html" # if in Windows PowerShell
     npm start  
     ```
 
@@ -54,8 +64,10 @@
     # 1. update version number, "version": "0.8.4" -> "version": "0.8.5", then:
 
     # 2. update the package to github release page
+    # export GH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    # or $Env:GH_TOKEN = "xxxxxxxxxxxxxxxx"
     npm run publish-win # will create pre-publish tag
 
-    # 3. update pre-publish to publish, the running application will update automatically
+    # 3. update pre-publish to publish in github release page, the running application will update automatically
     ```
 
