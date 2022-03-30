@@ -57,4 +57,8 @@ app.on('window-all-closed', () => {
 });
 
 
+// setTimeout(()=>{
+//   app.relaunch()
+//   app.exit()
+// },5* 1000)
 
