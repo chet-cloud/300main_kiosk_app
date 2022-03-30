@@ -5,6 +5,8 @@
     - disable notificatioin
     - disable screen and disk sleep
 
+    - https://docs.microsoft.com/en-us/windows/configuration/kiosk-shelllauncher
+    - https://docs.microsoft.com/en-us/answers/questions/249751windows-10-kiosk-scripting-registry-change-for-she.html
 2. Add app to startup
 
     - Install the application 
@@ -34,6 +36,8 @@
 4. install Syncthing
     - https://github.com/canton7/SyncTrayzor/releases/tag/v1.1.29
 
+
+5. nginx + winsw
 
 
 # Development 
