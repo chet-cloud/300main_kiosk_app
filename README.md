@@ -39,6 +39,13 @@
 
 5. nginx + winsw
 
+6. ssh, ftp
+
+7. ssh -oPort=6001 artisreit_kiosk@localhost
+
+8. restart everyday at 12:59:59 PM
+ 
+9. setup frp
 
 # Development 
 
